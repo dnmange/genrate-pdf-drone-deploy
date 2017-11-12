@@ -1,1 +1,1 @@
-genrate-pdf-drone-deploy
+Generating pdf using pdfMake library from base64 encoded tile content. 
