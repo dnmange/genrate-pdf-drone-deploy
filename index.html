@@ -1,14 +1,21 @@
+<!-- 
+Author: Darshan Mange
+Description: Genrate pdf of currently viewed map
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>PDF Generation</title>
 
 
   <!-- Scripts and Styles -->
   <link rel="stylesheet" href="https://s3.amazonaws.com/drone-deploy-plugins/templates/uikit/v1/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script src='pdfmake.min.js'></script>
   <script src='vfs_fonts.js'></script>
 
@@ -16,7 +23,7 @@
 <body>
 
   <!-- Generate PDF button -->
-  <input type = "submit" class="btn btn-primary" id = "generate-pdf" value = "Generate PDF">
+  <button type="button" class="btn btn-primary" id="generate-pdf" style="width:100px">Map PDF</button>
   <script src="script.js"></script>
 </body>
 </html>

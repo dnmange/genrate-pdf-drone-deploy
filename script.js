@@ -1,8 +1,14 @@
+/*
+Author: Darshan Mange
+Description: Business logic to convert currently map into pdf
+*/
+
+// id #generate-pdf is listening to onclick event 
 $("#generate-pdf").on("click",function(){
     getMapData();
 });
 
-/*Get tile data from currently viewed map api and nodejs server*/
+//Get tile data from currently viewed map api and nodejs server
 function getMapData(){
 	new DroneDeploy({version: 1}).then(function(dronedeploy){
 		dronedeploy.Plans.getCurrentlyViewed().then(function(plan){
@@ -15,22 +21,22 @@ function getMapData(){
 				const url = 'https://drone-deploy-app.herokuapp.com/getTiles';
 				const data = JSON.stringify(tiles);
 				return fetch(url, {
-				    method: 'POST',
-				    headers: new Headers({
-				        'Content-Type': 'application/json'
-				    }),
-				    body: data
-				})
-				.then(function (res) {
-				    return res.json();
-				})
-			.then(generatePdf); 
+    			    method: 'POST',
+    			    headers: new Headers({
+    			        'Content-Type': 'application/json'
+    			    }),
+    			    body: data
+    			})
+    			.then(function (res) {
+    			    return res.json();
+    			})
+    		  .then(generatePdf); 
 		  });
 		});
 	});
 }
 
-/*Get tiles as Array*/
+//Get tiles as Array
 function getTilesFromGeometry(geometry, template, zoom){
   function long2tile(lon,zoom) {
     return (Math.floor((lon+180)/360*Math.pow(2,zoom)));
@@ -69,13 +75,13 @@ function getTilesFromGeometry(geometry, template, zoom){
   return tiles;
 }
 
-/*Generate PDF using pdfMake*/
+//Generate PDF using pdfMake
 function generatePdf(titleContent) {
     const docDefinition = traverseTileArray(titleContent);
     pdfMake.createPdf(docDefinition).download();
 }
 
-/*Traverse tile array so as to generate the content for pdf*/
+//Traverse tile array so as to generate the content for pdf
 function traverseTileArray(titleContent) {
     var todaysDate = new Date(); 
     var dateTime = (todaysDate.getMonth()+1) + "/" + todaysDate.getDate() + "/" + todaysDate.getFullYear();

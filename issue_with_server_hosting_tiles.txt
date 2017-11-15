@@ -1,0 +1,7 @@
+As on the server side where "www.dronedeploy.com" hasnt been white listed on host server 'https://public-tiles.dronedeploy.com/f665b7b054_DNMANGEOPENPIPELINE_ortho_mwm/', so on generating whole pdf gives CORS issue. So i created node server to read the value of tile pngs separately. At least for now I can generate pdf of separate tiles. Once the drone deploy domain is whitelisted I can send you the code which generates the map as whole. 
+
+Please See the attached mail chain in the directory to get overview of the issue.
+
+Methods attempted to solve it:
+1) using leaflet and leaflet-image to convert tiles into image , Same issue as above
+2) usinf leaflet and DomToImage to convert tiles into image or directly into pdf, Same issue as above.
